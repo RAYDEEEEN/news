@@ -1,0 +1,16 @@
+node_modules
+coverage
+dist
+e2e
+test.ts
+polyfills.ts
+!**/.eslintrc*
+*.svg
+*.ico
+*.json
+.gitignore
+*.md
+*.log
+*.lock
+jest.config.js
+.eslintrc.js

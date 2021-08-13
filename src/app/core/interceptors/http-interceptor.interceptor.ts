@@ -6,7 +6,7 @@ import {
   HttpRequest
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { config } from 'configs/config';
+import { CONFIG } from 'configs/config';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -15,13 +15,11 @@ export class HttpApiInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log(process.env.API_KEY);
     const authReq = request.clone({
       headers: new HttpHeaders({
-        'X-Api-Key': config.apiKey
+        'X-Api-Key': CONFIG.API_KEY
       })
     });
-    console.log(authReq);
     return next.handle(authReq);
   }
 }
